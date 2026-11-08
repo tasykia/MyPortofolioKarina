@@ -238,10 +238,9 @@ for(let i=1;i<=20;i++){
   const button=document.createElement("button");
   button.className="doc-card";
   button.type="button";
-  button.dataset.src=`dokumentasi/lomba-${num}.jpg`;
-  button.dataset.title=`Dokumentasi Kegiatan ${num}`;
-  button.innerHTML=`<img src="dokumentasi/lomba-${num}.jpg" alt="Dokumentasi kegiatan ${num}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="doc-placeholder" style="display:none">📷 Foto kegiatan ${num} belum diunggah</div><span class="doc-caption">Kegiatan ${num}<small>Dokumentasi kegiatan</small></span>`;
-  button.addEventListener("click",()=>openDoc(button));
+ button.dataset.src=`lomba-${num}.jpg`;
+button.dataset.title=`Dokumentasi Kegiatan ${num}`;
+button.innerHTML=`<img src="lomba-${num}.jpg" alt="Dokumentasi kegiatan ${num}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="doc-placeholder" style="display:none">📷 Foto kegiatan ${num} belum diunggah</div><span class="doc-caption">Kegiatan ${num}<small>Dokumentasi kegiatan</small></span>`;
   gallery.appendChild(button);
 }
 
