@@ -232,23 +232,108 @@ const grid = document.getElementById("achievementGrid");
   });
 });
 
-const gallery=document.getElementById("gallery");
-for(let i=1;i<=20;i++){
-  const num=String(i).padStart(2,"0");
-  const button=document.createElement("button");
-  button.className="doc-card";
-  button.type="button";
- button.dataset.src=`lomba-${num}.jpg`;
-button.dataset.title=`Dokumentasi Kegiatan ${num}`;
-button.innerHTML=`<img src="lomba-${num}.jpg" alt="Dokumentasi kegiatan ${num}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="doc-placeholder" style="display:none">📷 Foto kegiatan ${num} belum diunggah</div><span class="doc-caption">Kegiatan ${num}<small>Dokumentasi kegiatan</small></span>`;
-  gallery.appendChild(button);
-}
-
-function openDoc(button){
-  document.getElementById("modalImage").src=button.dataset.src;
-  document.getElementById("modalCaption").textContent=button.dataset.title;
-  document.getElementById("docModal").classList.add("active");
-}
+const dokumentasi = [
+  {
+    foto: "lomba-01.jpg",
+    judul: "Lomba Tingkat II Pramuka",
+    deskripsi: "Mengikuti Lomba Tingkat II Regu Penggalang di Bumi Perkemahan Mojokerto tahun 2022."
+  },
+  {
+    foto: "lomba-02.jpg",
+    judul: "Latihan Dasar Kepemimpinan Siswa (LDKS)",
+    deskripsi: "Mengikuti kegiatan LDKS SMP Negeri 1 Buduran tahun 2023 untuk mengembangkan jiwa kepemimpinan dan tanggung jawab."
+  },
+  {
+    foto: "lomba-03.jpg",
+    judul: "Rute Panglima Sudirman (RPS)",
+    deskripsi: "Pengalaman mengikuti kegiatan RPS di SMA Taruna Nusantara."
+  },
+  {
+    foto: "lomba-04.jpg",
+    judul: "Panitia DIKLATSAR PASBARAN 2025",
+    deskripsi: "Berpartisipasi sebagai panitia dalam kegiatan DIKLATSAR PASBARAN 2025 SMP Negeri 1 Buduran."
+  },
+  {
+    foto: "lomba-05.jpg",
+    judul: "Dokumentasi Kegiatan 5",
+    deskripsi: "Dokumentasi pengalaman dan kegiatan pengembangan diri."
+  },
+  {
+    foto: "lomba-06.jpg",
+    judul: "Dokumentasi Kegiatan 6",
+    deskripsi: "Momen kegiatan dan pengalaman yang menjadi bagian dari perjalanan pengembangan diri."
+  },
+  {
+    foto: "lomba-07.jpg",
+    judul: "Dokumentasi Kegiatan 7",
+    deskripsi: "Dokumentasi kegiatan dan pengalaman pribadi."
+  },
+  {
+    foto: "lomba-08.jpg",
+    judul: "Dokumentasi Kegiatan 8",
+    deskripsi: "Momen partisipasi dalam kegiatan dan aktivitas pengembangan potensi."
+  },
+  {
+    foto: "lomba-09.jpg",
+    judul: "Dokumentasi Kegiatan 9",
+    deskripsi: "Salah satu pengalaman yang memberikan pembelajaran dan wawasan baru."
+  },
+  {
+    foto: "lomba-10.jpg",
+    judul: "Dokumentasi Kegiatan 10",
+    deskripsi: "Dokumentasi perjalanan dalam mengikuti berbagai kegiatan."
+  },
+  {
+    foto: "lomba-11.jpg",
+    judul: "Dokumentasi Kegiatan 11",
+    deskripsi: "Momen kebersamaan, kerja sama, dan pengalaman berharga."
+  },
+  {
+    foto: "lomba-12.jpg",
+    judul: "Dokumentasi Kegiatan 12",
+    deskripsi: "Pengalaman dalam mengembangkan keterampilan dan kemampuan diri."
+  },
+  {
+    foto: "lomba-13.jpg",
+    judul: "Dokumentasi Kegiatan 13",
+    deskripsi: "Dokumentasi kegiatan yang menjadi bagian dari perjalanan pendidikan."
+  },
+  {
+    foto: "lomba-14.jpg",
+    judul: "Dokumentasi Kegiatan 14",
+    deskripsi: "Momen partisipasi dalam kegiatan akademik maupun nonakademik."
+  },
+  {
+    foto: "lomba-15.jpg",
+    judul: "Dokumentasi Kegiatan 15",
+    deskripsi: "Pengalaman baru dalam membangun kedisiplinan dan tanggung jawab."
+  },
+  {
+    foto: "lomba-16.jpg",
+    judul: "Dokumentasi Kegiatan 16",
+    deskripsi: "Salah satu dokumentasi perjalanan dan aktivitas pengembangan diri."
+  },
+  {
+    foto: "lomba-17.jpg",
+    judul: "Dokumentasi Kegiatan 17",
+    deskripsi: "Momen yang menyimpan pengalaman dan pembelajaran berharga."
+  },
+  {
+    foto: "lomba-18.jpg",
+    judul: "Dokumentasi Kegiatan 18",
+    deskripsi: "Dokumentasi partisipasi dalam kegiatan bersama."
+  },
+  {
+    foto: "lomba-19.jpg",
+    judul: "Dokumentasi Kegiatan 19",
+    deskripsi: "Pengalaman yang menjadi bagian dari proses belajar dan berkembang."
+  },
+  {
+    foto: "lomba-20.jpg",
+    judul: "Dokumentasi Kegiatan 20",
+    deskripsi: "Dokumentasi perjalanan, pencapaian, dan pengalaman pribadi."
+  }
+];
 function closeDoc(){
   document.getElementById("docModal").classList.remove("active");
   document.getElementById("modalImage").src="";
