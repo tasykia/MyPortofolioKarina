@@ -697,8 +697,7 @@ const grid = document.getElementById("achievementGrid");
     card.innerHTML=`<span class="achievement-type">${a.type}</span><div class="icon">${a.icon}</div><h3>${a.title}</h3><p>${a.desc}</p>`;
     grid.appendChild(card);
   });
-});
-                                                                  
+});                                                                
 function openDoc(button){
   document.getElementById("modalImage").src=button.dataset.src;
   document.getElementById("modalCaption").textContent=button.dataset.title;
@@ -806,6 +805,27 @@ const dokumentasi = [
     deskripsi: "Dokumentasi perjalanan, pencapaian, dan pengalaman pribadi."
   }
 ];
+
+const gallery = document.getElementById("gallery");
+dokumentasi.forEach((item) => {
+  const card = document.createElement("button");
+  card.className = "doc-card";
+  card.dataset.src = item.foto;
+  card.dataset.title = item.judul;
+  card.innerHTML = `
+    <img src="${item.foto}" 
+         alt="${item.judul}"
+         onerror="this.outerHTML='<div class=\\'doc-placeholder\\'>Foto tidak ditemukan</div>'">
+    <span class="doc-caption">
+      ${item.judul}
+      <small>${item.deskripsi}</small>
+    </span>
+  `;
+
+  card.onclick = () => openDoc(card);
+  gallery.appendChild(card);
+});
+                                                                  
 function closeDoc(){
   document.getElementById("docModal").classList.remove("active");
   document.getElementById("modalImage").src="";
